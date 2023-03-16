@@ -2,19 +2,27 @@
   "manifest_version": 3,
   "name": "CopyAndPaste",
   "version": "1.0",
-  "action":{
-    "default_popup":"index.html",
+  "action": {
+    "default_popup": "index.html",
     "default_icon": "copy.png"
   },
-  "background":{
-    "service_worker": "background.js",
-    "type": "module"
-  },
-    "permissions": [
-      "tabs",
-      "storage",
-      "<all_urls>",
-      "scripting",
-      "activeTab"
-    ]
+
+  "content_scripts": [
+    {
+      "js": [
+        "scripts/content.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+
+  "permissions": [
+    "tabs",
+    "storage",
+    "<all_urls>",
+    "scripting",
+    "activeTab"
+  ]
 }

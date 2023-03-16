@@ -1,7 +1,17 @@
-chrome.tabs.onActivated.addListener(
-    chrome.scripting.executeScript(null, {file: './foreground.js'}, console.log('injected code'))
-)
+const currentTab = chrome.tabs.query({ active: true, currentWindow: true })
 
+console.log('current:', currentTab)
+
+chrome.tabs.onActivated.addListener(
+    // chrome.scripting.executeScript(null, {file: './foreground.js'}, console.log('injected code'))
+
+    chrome.scripting.executeScript({
+        target: { tabId: currentTab },
+        files: ["foreground.js"],
+    })
+    .then(() => console.log("injected script file"))
+    
+);
 
 // chrome.runtime.onInstalled.addListener(() => {
 //     chrome.contextMenus.create({

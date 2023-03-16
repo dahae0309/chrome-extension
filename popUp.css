@@ -1,10 +1,32 @@
 body {
   height: 400px;
   width: 400px;
-  background-color: aqua;
+  background-color: rgb(103, 106, 106);
   /* border-radius: 5px; */
 }
 
-/* .last-ten {
+h1{
+  position: absolute;
+  top: 30px;
+  left:120px;
+}
 
-} */
+img {
+  height: 380px;
+  width: 360px;
+  margin-left: 25px;
+  margin-top: 15px;
+}
+
+#buttons {
+  position: absolute;
+  top: 25%;
+  left:30%;
+  display: grid;
+}
+
+#button1, #button2, #button3, #button4, #button5, #button6 {
+  margin: 10px;
+} 
+
+
